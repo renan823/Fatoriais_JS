@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatoriais</title>
+</head>
+<style>
+
+    *{
+        margin: 0px;
+        padding: 0px;
+    }
+
+    html{
+        background: #333;
+    }
+    h1, body, p, form{
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 10px;
+    }
+    div{
+        background-color: #ab7bf4;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        padding: 10px;
+    }
+
+    .botao{
+        width: 100px;
+        height: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .input{
+        width: 300px;
+        height: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+    }
+
+    .body{
+        background: white;
+        max-width: 600px;
+        min-width: 400px;
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+
+    }
+</style>
+<body class="body">
+    <div>
+        <h1>Calculando o fatorial!</h1>
+        <p>Digite um número maior ou igual a zero e calcule o fatorial!</p>
+        <form>
+            <input type="number" min="0" id="numero" placeholder="Digite um número aqui" class="input"><br><br>
+            <input type="button" onclick="Calcular()" value="Calcular" class="botao">
+            <input type="button" onclick="reload()" value="Limpar" class="botao">
+        </form>
+    </div>
+    
+
+    <h2 id = "resultado">--Resultados--</h2>
+    
+    <script>
+
+        
+
+        function criarTXT(cont, fatorial){
+            var Texto = document.createElement("p")
+
+            Texto.setAttribute("id", "Texto")
+            
+
+            Texto.innerHTML = "!" + cont + " = " + fatorial
+
+            document.body.appendChild(Texto)
+
+        }
+   
+        function Calcular(){
+
+            
+            
+            
+            var numero = document.getElementById("numero").value
+
+            if (numero > -1 && numero != ""){
+                numero = parseInt(numero) 
+                
+                var fatorial = 1
+                var cont = 0
+
+               
+                for (var c = 1; c <= numero + 1; c++){
+                    criarTXT(cont, fatorial)
+                    fatorial = fatorial * c
+                    cont++
+                }
+
+            }
+
+            else{
+                alert("Número inválido! Ação cancelada!")
+                reload()
+            }
+
+             
+        }
+
+        //Fiz essa função que "limpa" a pgn dando um reload 
+        function reload(){
+            window.location.reload()
+        }
+
+        
+   
+    </script>
+</body>
+</html>
